@@ -7,10 +7,12 @@ package scalesandchordsgui;
 
 import java.util.ArrayList;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import static javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY;
@@ -77,43 +79,49 @@ public class ScalesAndChordsGUI extends Application {
 ////////FIN COMBO BOX DE ESCALA Y NOTAS
         
 ////////INICIO TABLA DE ACORDES COMPATIBLES
-        TableColumn tableA  = new TableColumn("A");
-        tableA.setPrefWidth(75);
-        TableColumn tableBb = new TableColumn("Bb");
-        tableBb.setPrefWidth(75);
-        TableColumn tableB  = new TableColumn("B");
-        tableB.setPrefWidth(75);
-        TableColumn tableC  = new TableColumn("C");
-        tableC.setPrefWidth(75);
-        TableColumn tableDb = new TableColumn("Db");
-        tableDb.setPrefWidth(75);
-        TableColumn tableD  = new TableColumn("D");
-        tableD.setPrefWidth(75);
-                
-        TableColumn tableE  = new TableColumn("E");
-        tableE.setPrefWidth(75);
-        TableColumn tableEb = new TableColumn("Eb");
-        tableEb.setPrefWidth(75);
-        TableColumn tableF  = new TableColumn("F");
-        tableF.setPrefWidth(75);
-        TableColumn tableGb = new TableColumn("Gb");
-        tableGb.setPrefWidth(75);
-        TableColumn tableG  = new TableColumn("G");
-        tableG.setPrefWidth(75);
-        TableColumn tableAb = new TableColumn("Ab");
-        tableAb.setPrefWidth(75);
-        //tablaAb.setMinWidth(75);
-        //tablaAb.setMaxWidth(75);
-                      
-        TableView tableChords = new TableView();
-        tableChords.getColumns().addAll(tableA,tableBb,tableB,tableC,tableDb,tableD,
-                tableE,tableEb,tableF,tableGb,tableG,tableAb);
-        tableChords.setMaxSize(900, 400);
-        tableChords.setColumnResizePolicy(CONSTRAINED_RESIZE_POLICY);
+        //A
+        ListView<String> listA = new ListView<String>();
+        listA.setPrefSize(75, 300);
+        //Bb
+        ListView<String> listBb = new ListView<String>();
+        listBb.setPrefSize(75, 300);
+        //B
+        ListView<String> listB = new ListView<String>();
+        listB.setPrefSize(75, 300);
+        //C
+        ListView<String> listC = new ListView<String>();
+        listC.setPrefSize(75, 300);
+        //Db
+        ListView<String> listDb = new ListView<String>();
+        listDb.setPrefSize(75, 300);
+        //D
+        ListView<String> listD = new ListView<String>();
+        listD.setPrefSize(75, 300);
+        //Eb
+        ListView<String> listEb = new ListView<String>();
+        listEb.setPrefSize(75, 300);
+        //E
+        ListView<String> listE = new ListView<String>();
+        listE.setPrefSize(75, 300);
+        //F
+        ListView<String> listF = new ListView<String>();
+        listF.setPrefSize(75, 300);
+        //Gb
+        ListView<String> listGb = new ListView<String>();
+        listGb.setPrefSize(75, 300);
+        //G
+        ListView<String> listG = new ListView<String>();
+        listG.setPrefSize(75, 300);
+        //Ab
+        ListView<String> listAb = new ListView<String>();
+        listAb.setPrefSize(75, 300);
         
-        VBox vBoxTables = new VBox(0);
+        HBox hBoxLists = new HBox(10);
+        hBoxLists.getChildren().addAll(listA,listBb,listB,listC,listDb,listD,
+                                       listEb,listE,listF,listGb,listG,listAb);
+        VBox vBoxTables = new VBox(50);
         vBoxTables.setAlignment(Pos.CENTER_LEFT);
-        vBoxTables.getChildren().addAll(hboxComboBoxes,tableChords);
+        vBoxTables.getChildren().addAll(hboxComboBoxes,hBoxLists);
         
 ////////FIN TABLA DE ACORDES COMPATIBLES
         
@@ -191,21 +199,34 @@ public class ScalesAndChordsGUI extends Application {
             chordGb.verify_ALL(dummyArray);
             chordG.verify_ALL(dummyArray);
             chordAb.verify_ALL(dummyArray);
-            System.out.println("ACORDES CONTENIDOS EN LA ESCALA");
-            chordA.showArrayList();
-            chordBb.showArrayList();
-            chordB.showArrayList();
-            chordC.showArrayList();
-            chordDb.showArrayList();
-            chordD.showArrayList();
-            chordEb.showArrayList();
-            chordE.showArrayList();
-            chordF.showArrayList();
-            chordGb.showArrayList();
-            chordG.showArrayList();
-            chordAb.showArrayList();
-            System.out.println("------------------------------------------------");
             
+            System.out.println("ACORDES CONTENIDOS EN LA ESCALA");
+            listA.setItems(chordA.getObservableItems());
+            listBb.setItems(chordBb.getObservableItems());
+            listB.setItems(chordB.getObservableItems());
+            listC.setItems(chordC.getObservableItems());
+            
+            listDb.setItems(chordDb.getObservableItems());
+            listD.setItems(chordD.getObservableItems());
+            listEb.setItems(chordEb.getObservableItems());
+            listE.setItems(chordE.getObservableItems());
+            
+            listF.setItems(chordF.getObservableItems());
+            listGb.setItems(chordGb.getObservableItems());
+            listG.setItems(chordG.getObservableItems());
+            listAb.setItems(chordAb.getObservableItems());
+            chordA.showList();
+            chordBb.showList();
+            chordB.showList();
+            chordC.showList();
+            chordDb.showList();
+            chordD.showList();
+            chordEb.showList();
+            chordE.showList();
+            chordF.showList();
+            chordGb.showList();
+            chordG.showList();
+            chordAb.showList(); 
             
             //GRAPHIC PART
             grupo.getChildren().clear();
@@ -314,18 +335,32 @@ public class ScalesAndChordsGUI extends Application {
             chordAb.verify_ALL(dummyArray);
             
             System.out.println("ACORDES CONTENIDOS EN LA ESCALA");
-            chordA.showArrayList();
-            chordBb.showArrayList();
-            chordB.showArrayList();
-            chordC.showArrayList();
-            chordDb.showArrayList();
-            chordD.showArrayList();
-            chordEb.showArrayList();
-            chordE.showArrayList();
-            chordF.showArrayList();
-            chordGb.showArrayList();
-            chordG.showArrayList();
-            chordAb.showArrayList(); 
+            listA.setItems(chordA.getObservableItems());
+            listBb.setItems(chordBb.getObservableItems());
+            listB.setItems(chordB.getObservableItems());
+            listC.setItems(chordC.getObservableItems());
+            
+            listDb.setItems(chordDb.getObservableItems());
+            listD.setItems(chordD.getObservableItems());
+            listEb.setItems(chordEb.getObservableItems());
+            listE.setItems(chordE.getObservableItems());
+            
+            listF.setItems(chordF.getObservableItems());
+            listGb.setItems(chordGb.getObservableItems());
+            listG.setItems(chordG.getObservableItems());
+            listAb.setItems(chordAb.getObservableItems());
+            chordA.showList();
+            chordBb.showList();
+            chordB.showList();
+            chordC.showList();
+            chordDb.showList();
+            chordD.showList();
+            chordEb.showList();
+            chordE.showList();
+            chordF.showList();
+            chordGb.showList();
+            chordG.showList();
+            chordAb.showList();  
             System.out.println("------------------------------------------------");
             
             grupo.getChildren().clear();

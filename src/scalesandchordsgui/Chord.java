@@ -5,6 +5,9 @@
  */
 package scalesandchordsgui;
 import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  *
  * @author Luis Carlos A. Rojas Torres <luiscarlos.bsf@oceanica.ufrj.br>
@@ -33,7 +36,8 @@ public class Chord extends Chromatic{
     private String[] minorThirteenthChord = new String[6];
     private String[] majorThirteenthChord = new String[6];
     
-    private ArrayList<String> itemsOfTable = new ArrayList<String>();
+    private List<String> itemsList = new ArrayList<>();
+    private ObservableList<String> observableItems;
     
     public Chord(String note){
         super(note);
@@ -253,57 +257,67 @@ public class Chord extends Chromatic{
         return false;        
     }
     public void verify_ALL(String[] dummyScale){
-        this.clearItemsOfTable();
+        this.clearItemsList();
+        //this.clearObservableItems();
+        
         if(this.verify_m(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m(dummyScale));
+            this.itemsList.add(this.verify_m(dummyScale));
         }
         if(this.verify_(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_(dummyScale));
+            this.itemsList.add(this.verify_(dummyScale));
         }
         if(this.verify_m6(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m6(dummyScale));
+            this.itemsList.add(this.verify_m6(dummyScale));
         }
         if(this.verify_6(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_6(dummyScale));
+            this.itemsList.add(this.verify_6(dummyScale));
         }
         if(this.verify_7(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_7(dummyScale));
+            this.itemsList.add(this.verify_7(dummyScale));
         }
         if(this.verify_m7(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m7(dummyScale));
+            this.itemsList.add(this.verify_m7(dummyScale));
         }
         if(this.verify_M7(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_M7(dummyScale));
+            this.itemsList.add(this.verify_M7(dummyScale));
         }
         if(this.verify_add9(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_add9(dummyScale));
+            this.itemsList.add(this.verify_add9(dummyScale));
         }
         if(this.verify_9(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_9(dummyScale));
+            this.itemsList.add(this.verify_9(dummyScale));
         }
         if(this.verify_m9(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m9(dummyScale));
+            this.itemsList.add(this.verify_m9(dummyScale));
         }
         if(this.verify_M9(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_M9(dummyScale));
+            this.itemsList.add(this.verify_M9(dummyScale));
         }
         if(this.verify_11(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_11(dummyScale));
+            this.itemsList.add(this.verify_11(dummyScale));
         }
         if(this.verify_m11(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m11(dummyScale));
+            this.itemsList.add(this.verify_m11(dummyScale));
         }
         if(this.verify_M11(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_M11(dummyScale));
+            this.itemsList.add(this.verify_M11(dummyScale));
         }
         if(this.verify_13(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_13(dummyScale));
+            this.itemsList.add(this.verify_13(dummyScale));
         }
         if(this.verify_m13(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_m13(dummyScale));
+            this.itemsList.add(this.verify_m13(dummyScale));
         }
         if(this.verify_M13(dummyScale)!= ""){
-            this.itemsOfTable.add(this.verify_M13(dummyScale));
+            this.itemsList.add(this.verify_M13(dummyScale));
+        }
+        
+        if(this.itemsList.isEmpty()){
+            this.itemsList.add("No Chords");
+            observableItems =FXCollections.observableArrayList(this.itemsList);
+        }
+        else{
+            observableItems =FXCollections.observableArrayList(this.itemsList);
         }
     }
     public String verify_m(String[] dummyScale){
@@ -530,14 +544,20 @@ public class Chord extends Chromatic{
         return this.majorThirteenthChord;
     }
     
-    public ArrayList getItemsOfTable(){
-        return this.itemsOfTable;
+    public List getItemsList(){
+        return this.itemsList;
     }
-    public void clearItemsOfTable(){
-        this.itemsOfTable.clear();
+    public ObservableList getObservableItems(){
+        return this.observableItems;
     }
-    public void showArrayList(){
-        for(String i:this.itemsOfTable){
+    public void clearObservableItems(){
+        this.observableItems.clear();
+    }
+    public void clearItemsList(){
+        this.itemsList.clear();
+    }
+    public void showList(){
+        for(String i:this.itemsList){
             System.out.print(i+" | ");
         }
         System.out.println("");
