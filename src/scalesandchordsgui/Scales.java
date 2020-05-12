@@ -96,7 +96,7 @@ public class Scales extends Chromatic{
             this.locrianScale[i] = getChromaticScaleArray()[this.locrianOrder[i]];
         }
     }
-    public void setKeyNote(String nota){
+    public void setKey(String nota){
         super.setChromaticScale(nota);
         //Major Scale
         for(int i=0; i < this.majorScaleOrder.length; i++){

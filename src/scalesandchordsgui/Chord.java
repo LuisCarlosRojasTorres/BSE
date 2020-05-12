@@ -253,6 +253,7 @@ public class Chord extends Chromatic{
         return false;        
     }
     public void verify_ALL(String[] dummyScale){
+        this.clearItemsOfTable();
         if(this.verify_m(dummyScale)!= ""){
             this.itemsOfTable.add(this.verify_m(dummyScale));
         }
@@ -532,5 +533,13 @@ public class Chord extends Chromatic{
     public ArrayList getItemsOfTable(){
         return this.itemsOfTable;
     }
-    
+    public void clearItemsOfTable(){
+        this.itemsOfTable.clear();
+    }
+    public void showArrayList(){
+        for(String i:this.itemsOfTable){
+            System.out.print(i+" | ");
+        }
+        System.out.println("");
+    }
 }
