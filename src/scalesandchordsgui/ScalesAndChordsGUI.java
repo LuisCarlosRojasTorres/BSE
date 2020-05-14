@@ -5,23 +5,17 @@
  */
 package scalesandchordsgui;
 
-import java.util.ArrayList;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
+
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import static javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -29,7 +23,7 @@ import javafx.stage.Stage;
  * @author Luis Carlos A. Rojas Torres <luiscarlos.bsf@oceanica.ufrj.br>
  */
 public class ScalesAndChordsGUI extends Application {
-    Scales escalaTest = new Scales("C");
+    Scales escalaTest = new Scales("A");
     
     Chord chordC  = new Chord("C");
     Chord chordDb = new Chord("Db");
@@ -134,6 +128,7 @@ public class ScalesAndChordsGUI extends Application {
         //COMBOBOXES
         cbNota.setOnAction(e -> {
             escalaTest.setKey(cbNota.getValue());
+            //System.out.println(escalaTest);
             groupC.setGroupNotesColours(escalaTest);
             groupDb.setGroupNotesColours(escalaTest);
             groupD.setGroupNotesColours(escalaTest);
@@ -151,36 +146,47 @@ public class ScalesAndChordsGUI extends Application {
             switch(cbEscala.getValue()){
                 case "Major":
                     dummyArray = escalaTest.getMajorScaleArray();
+                    //System.out.println(escalaTest.getMajorScaleString());
                     break;
                 case "Major Pentatonic":
                     dummyArray = escalaTest.getMajorPentatonicScaleArray();
+                    //System.out.println(escalaTest.getMajorPentatonicScaleString());
                     break;
                 case "Minor":
                     dummyArray = escalaTest.getMinorScaleArray();
+                    //System.out.println(escalaTest.getMinorScaleString());
                     break;
                 case "Minor Pentatonic":
                     dummyArray = escalaTest.getMinorPentatonicScaleArray();
+                    //System.out.println(escalaTest.getMinorPentatonicScaleString());
                     break;
                 case "Ionian":
                     dummyArray = escalaTest.getIonianScaleArray();
+                    //System.out.println(escalaTest.getIonianScaleString());
                     break;
                 case"Dorian":
                     dummyArray = escalaTest.getDorianScaleArray();
+                    //System.out.println(escalaTest.getDorianScaleString());
                     break;
                 case "Phrygian":
                     dummyArray = escalaTest.getPhrygianScaleArray();
+                    //System.out.println(escalaTest.getPhrygianScaleString());
                     break;
                 case "Lydian":
                     dummyArray = escalaTest.getLydianScaleArray();
+                    //System.out.println(escalaTest.getLydianScaleString());
                     break;
                 case "Mixolydian":
                     dummyArray = escalaTest.getMixolydianScaleArray();
+                    //System.out.println(escalaTest.getMixolydianScaleString());
                     break;
                 case "Aeolian":
                     dummyArray = escalaTest.getAeolianScaleArray();
+                    //System.out.println(escalaTest.getAeolianScaleString());
                     break;
                 case "Locrian":
                     dummyArray = escalaTest.getLocrianScaleArray();
+                    //System.out.println(escalaTest.getLocrianScaleString());
                     break;
                 default:
                     dummyArray = escalaTest.getMajorScaleArray();
@@ -200,7 +206,6 @@ public class ScalesAndChordsGUI extends Application {
             chordG.verify_ALL(dummyArray);
             chordAb.verify_ALL(dummyArray);
             
-            System.out.println("ACORDES CONTENIDOS EN LA ESCALA");
             listA.setItems(chordA.getObservableItems());
             listBb.setItems(chordBb.getObservableItems());
             listB.setItems(chordB.getObservableItems());
@@ -215,18 +220,18 @@ public class ScalesAndChordsGUI extends Application {
             listGb.setItems(chordGb.getObservableItems());
             listG.setItems(chordG.getObservableItems());
             listAb.setItems(chordAb.getObservableItems());
-            chordA.showList();
-            chordBb.showList();
-            chordB.showList();
-            chordC.showList();
-            chordDb.showList();
-            chordD.showList();
-            chordEb.showList();
-            chordE.showList();
-            chordF.showList();
-            chordGb.showList();
-            chordG.showList();
-            chordAb.showList(); 
+            //chordA.showList();
+            //chordBb.showList();
+            //chordB.showList();
+            //chordC.showList();
+            //chordDb.showList();
+            //chordD.showList();
+            //chordEb.showList();
+            //chordE.showList();
+            //chordF.showList();
+            //chordGb.showList();
+            //chordG.showList();
+            //chordAb.showList(); 
             
             //GRAPHIC PART
             grupo.getChildren().clear();
@@ -282,39 +287,51 @@ public class ScalesAndChordsGUI extends Application {
         
         cbEscala.setOnAction(e ->{
             String[] dummyArray;
+            System.out.println("------------------------------------------------");
             switch(cbEscala.getValue()){
                 case "Major":
                     dummyArray = escalaTest.getMajorScaleArray();
+                    //System.out.println(escalaTest.getMajorScaleString());
                     break;
                 case "Major Pentatonic":
                     dummyArray = escalaTest.getMajorPentatonicScaleArray();
+                    //System.out.println(escalaTest.getMajorPentatonicScaleString());
                     break;
                 case "Minor":
                     dummyArray = escalaTest.getMinorScaleArray();
+                    //System.out.println(escalaTest.getMinorScaleString());
                     break;
                 case "Minor Pentatonic":
                     dummyArray = escalaTest.getMinorPentatonicScaleArray();
+                    //System.out.println(escalaTest.getMinorPentatonicScaleString());
                     break;
                 case "Ionian":
                     dummyArray = escalaTest.getIonianScaleArray();
+                    //System.out.println(escalaTest.getIonianScaleString());
                     break;
                 case"Dorian":
                     dummyArray = escalaTest.getDorianScaleArray();
+                    //System.out.println(escalaTest.getDorianScaleString());
                     break;
                 case "Phrygian":
                     dummyArray = escalaTest.getPhrygianScaleArray();
+                    //System.out.println(escalaTest.getPhrygianScaleString());
                     break;
                 case "Lydian":
                     dummyArray = escalaTest.getLydianScaleArray();
+                    //System.out.println(escalaTest.getLydianScaleString());
                     break;
                 case "Mixolydian":
                     dummyArray = escalaTest.getMixolydianScaleArray();
+                    //System.out.println(escalaTest.getMixolydianScaleString());
                     break;
                 case "Aeolian":
                     dummyArray = escalaTest.getAeolianScaleArray();
+                    //System.out.println(escalaTest.getAeolianScaleString());
                     break;
                 case "Locrian":
                     dummyArray = escalaTest.getLocrianScaleArray();
+                    //System.out.println(escalaTest.getLocrianScaleString());
                     break;
                 default:
                     dummyArray = escalaTest.getMajorScaleArray();
@@ -334,7 +351,7 @@ public class ScalesAndChordsGUI extends Application {
             chordG.verify_ALL(dummyArray);
             chordAb.verify_ALL(dummyArray);
             
-            System.out.println("ACORDES CONTENIDOS EN LA ESCALA");
+            
             listA.setItems(chordA.getObservableItems());
             listBb.setItems(chordBb.getObservableItems());
             listB.setItems(chordB.getObservableItems());
@@ -349,19 +366,19 @@ public class ScalesAndChordsGUI extends Application {
             listGb.setItems(chordGb.getObservableItems());
             listG.setItems(chordG.getObservableItems());
             listAb.setItems(chordAb.getObservableItems());
-            chordA.showList();
-            chordBb.showList();
-            chordB.showList();
-            chordC.showList();
-            chordDb.showList();
-            chordD.showList();
-            chordEb.showList();
-            chordE.showList();
-            chordF.showList();
-            chordGb.showList();
-            chordG.showList();
-            chordAb.showList();  
-            System.out.println("------------------------------------------------");
+            //chordA.showList();
+            //chordBb.showList();
+            //chordB.showList();
+            //chordC.showList();
+            //chordDb.showList();
+            //chordD.showList();
+            //chordEb.showList();
+            //chordE.showList();
+            //chordF.showList();
+            //chordGb.showList();
+            //chordG.showList();
+            //chordAb.showList();  
+            
             
             grupo.getChildren().clear();
             grupo.getChildren().add(imagenTrastero);
@@ -424,7 +441,7 @@ public class ScalesAndChordsGUI extends Application {
         
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Scales & Chords v1.0 2020");
+        primaryStage.setTitle("Scales & Chords v1.0 rev3 2020 - JyL");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

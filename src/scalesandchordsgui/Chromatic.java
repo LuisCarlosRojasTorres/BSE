@@ -112,7 +112,9 @@ public class Chromatic {
     
     @Override
     public String toString(){
-        return String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s",
+        return String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s %n",
+                //+ "Key: %s%n"+"Minor3: %s%n"+"Major3: %s%n"
+                //+"Perfect5: %s%n"+"Minor7: %s%n"+"Major7: %s%n",
                 this.getChromaticScaleElem(0),
                 this.getChromaticScaleElem(1),
                 this.getChromaticScaleElem(2),
@@ -124,7 +126,9 @@ public class Chromatic {
                 this.getChromaticScaleElem(8),
                 this.getChromaticScaleElem(9),
                 this.getChromaticScaleElem(10),
-                this.getChromaticScaleElem(11)  );
+                this.getChromaticScaleElem(11));
+                //this.getKey(),this.getMinorThird(),this.getMajorThird(),
+                //this.getPerfectFifth(),this.getMinorSeventh(),this.getMajorSeventh());
     }
     
 }

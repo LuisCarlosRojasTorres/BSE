@@ -178,5 +178,112 @@ public class Scales extends Chromatic{
     public String[] getLocrianScaleArray(){
         return this.locrianScale;        
     }
-   
+   //Metodos toString
+    public String getMajorScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getMajorScaleArray()[0],
+                this.getMajorScaleArray()[1],
+                this.getMajorScaleArray()[2],
+                this.getMajorScaleArray()[3],
+                this.getMajorScaleArray()[4],
+                this.getMajorScaleArray()[5],
+                this.getMajorScaleArray()[6]);
+    }
+    public String getMinorScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getMinorScaleArray()[0],
+                this.getMinorScaleArray()[1],
+                this.getMinorScaleArray()[2],
+                this.getMinorScaleArray()[3],
+                this.getMinorScaleArray()[4],
+                this.getMinorScaleArray()[5],
+                this.getMinorScaleArray()[6]); 
+    }
+    public String getMajorPentatonicScaleString(){
+        return String.format("%s, %s, %s, %s, %s%n",
+                this.getMajorPentatonicScaleArray()[0],
+                this.getMajorPentatonicScaleArray()[1],
+                this.getMajorPentatonicScaleArray()[2],
+                this.getMajorPentatonicScaleArray()[3],
+                this.getMajorPentatonicScaleArray()[4]);
+    }
+    public String getMinorPentatonicScaleString(){
+        return String.format("%s, %s, %s, %s, %s%n",
+                this.getMinorPentatonicScaleArray()[0],
+                this.getMinorPentatonicScaleArray()[1],
+                this.getMinorPentatonicScaleArray()[2],
+                this.getMinorPentatonicScaleArray()[3],
+                this.getMinorPentatonicScaleArray()[4]);
+    }
+    public String getIonianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getIonianScaleArray()[0],
+                this.getIonianScaleArray()[1],
+                this.getIonianScaleArray()[2],
+                this.getIonianScaleArray()[3],
+                this.getIonianScaleArray()[4],
+                this.getIonianScaleArray()[5],
+                this.getIonianScaleArray()[6]);
+    }
+    public String getDorianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getDorianScaleArray()[0],
+                this.getDorianScaleArray()[1],
+                this.getDorianScaleArray()[2],
+                this.getDorianScaleArray()[3],
+                this.getDorianScaleArray()[4],
+                this.getDorianScaleArray()[5],
+                this.getDorianScaleArray()[6]);     
+    }
+    public String getPhrygianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getPhrygianScaleArray()[0],
+                this.getPhrygianScaleArray()[1],
+                this.getPhrygianScaleArray()[2],
+                this.getPhrygianScaleArray()[3],
+                this.getPhrygianScaleArray()[4],
+                this.getPhrygianScaleArray()[5],
+                this.getPhrygianScaleArray()[6]);  
+    }
+    public String getLydianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getLydianScaleArray()[0],
+                this.getLydianScaleArray()[1],
+                this.getLydianScaleArray()[2],
+                this.getLydianScaleArray()[3],
+                this.getLydianScaleArray()[4],
+                this.getLydianScaleArray()[5],
+                this.getLydianScaleArray()[6]);  
+    }
+    public String getMixolydianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getMixolydianScaleArray()[0],
+                this.getMixolydianScaleArray()[1],
+                this.getMixolydianScaleArray()[2],
+                this.getMixolydianScaleArray()[3],
+                this.getMixolydianScaleArray()[4],
+                this.getMixolydianScaleArray()[5],
+                this.getMixolydianScaleArray()[6]);    
+    }
+    public String getAeolianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getAeolianScaleArray()[0],
+                this.getAeolianScaleArray()[1],
+                this.getAeolianScaleArray()[2],
+                this.getAeolianScaleArray()[3],
+                this.getAeolianScaleArray()[4],
+                this.getAeolianScaleArray()[5],
+                this.getAeolianScaleArray()[6]);      
+    }
+    public String getLocrianScaleString(){
+        return String.format("%s, %s, %s, %s, %s, %s, %s%n",
+                this.getLocrianScaleArray()[0],
+                this.getLocrianScaleArray()[1],
+                this.getLocrianScaleArray()[2],
+                this.getLocrianScaleArray()[3],
+                this.getLocrianScaleArray()[4],
+                this.getLocrianScaleArray()[5],
+                this.getLocrianScaleArray()[6]);        
+    }
+    
 }

@@ -239,6 +239,7 @@ public class groupNotes {
         
                 arrayNote[10] = new Circle(posXNota(6), posYNota(6), 10);
                 arrayNote[11] = new Circle(posXNota(18), posYNota(6), 10);
+            break;
             case "B":
                 arrayNoteKey = note;
                 arrayNote[0] = new Circle(posXNota(7), posYNota(1), 10);
