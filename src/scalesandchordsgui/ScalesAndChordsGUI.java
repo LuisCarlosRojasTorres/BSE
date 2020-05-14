@@ -11,11 +11,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -113,9 +116,101 @@ public class ScalesAndChordsGUI extends Application {
         HBox hBoxLists = new HBox(10);
         hBoxLists.getChildren().addAll(listA,listBb,listB,listC,listDb,listD,
                                        listEb,listE,listF,listGb,listG,listAb);
+        
+        //HELP leyenda de COLORES
+        Circle cKey = new Circle (30,500,10);
+        cKey.setStroke(Color.BLACK);
+        cKey.setFill(Color.WHITE);
+        Label lblKey = new Label("Key Note:");
+        lblKey.setPrefWidth(100);
+        Label lblKeyIN = new Label("");
+        HBox cKeyBox = new HBox(10,cKey,lblKey,lblKeyIN);
+        
+        
+        Circle cm3 = new Circle (30,475,10);
+        cm3.setStroke(Color.BLACK);
+        cm3.setFill(Color.rgb(255,255,0));
+        Label lblm3 = new Label("Minor 3rd:");
+        lblm3.setPrefWidth(100);
+        Label lblm3IN = new Label("");
+        HBox cm3Box = new HBox(10,cm3,lblm3,lblm3IN);
+        
+        Circle cM3 = new Circle (30,450,10);
+        cM3.setStroke(Color.BLACK);
+        cM3.setFill(Color.rgb(155,155,0));
+        Label lblM3 = new Label("Major 3rd:");
+        lblM3.setPrefWidth(100);
+        Label lblM3IN = new Label("");
+        HBox cM3Box = new HBox(10,cM3,lblM3,lblM3IN);
+        
+        Circle cD5 = new Circle (30,425,10);
+        cD5.setStroke(Color.BLACK);
+        cD5.setFill(Color.rgb(255,0,0));
+        Label lblD5 = new Label("Diminished 5th:");
+        lblD5.setPrefWidth(100);
+        Label lblD5IN = new Label("");
+        HBox cD5Box = new HBox(10,cD5,lblD5,lblD5IN);
+        
+        Circle cP5 = new Circle (30,400,10);
+        cP5.setStroke(Color.BLACK);
+        cP5.setFill(Color.rgb(150,0,0));
+        Label lblP5 = new Label("Perfect 5th:");
+        lblP5.setPrefWidth(100);
+        Label lblP5IN = new Label("");
+        HBox cP5Box = new HBox(10,cP5,lblP5,lblP5IN);
+        
+        Circle cM6 = new Circle (30,375,10);
+        cM6.setStroke(Color.BLACK);
+        cM6.setFill(Color.rgb(250,200,200));
+        Label lblM6 = new Label("Major 6th or 13th:");
+        lblM6.setPrefWidth(100);
+        Label lblM6IN = new Label("");
+        HBox cM6Box = new HBox(10,cM6,lblM6,lblM6IN);
+        
+        Circle cm7 = new Circle (30,350,10);
+        cm7.setStroke(Color.BLACK);
+        cm7.setFill(Color.rgb(0,255,0));
+        Label lblm7 = new Label("Minor 7th:");
+        lblm7.setPrefWidth(100);
+        Label lblm7IN = new Label("");
+        HBox cm7Box = new HBox(10,cm7,lblm7,lblm7IN);
+        
+        Circle cM7 = new Circle (30,325,10);
+        cM7.setStroke(Color.BLACK);
+        cM7.setFill(Color.rgb(0,100,0));
+        Label lblM7 = new Label("Major 7th:");
+        lblM7.setPrefWidth(100);
+        Label lblM7IN = new Label("");
+        HBox cM7Box = new HBox(10,cM7,lblM7,lblM7IN);
+        
+        Circle c9 = new Circle (30,300,10);
+        c9.setStroke(Color.BLACK);
+        c9.setFill(Color.rgb(0,0,155));
+        Label lbl9 = new Label("2nd or 9th:");
+        lbl9.setPrefWidth(100);
+        Label lbl9IN = new Label("");
+        HBox c9Box = new HBox(10,c9,lbl9,lbl9IN);
+        
+        Circle c11 = new Circle (30,275,10);
+        c11.setStroke(Color.BLACK);
+        c11.setFill(Color.rgb(250,120,200));
+        Label lbl11 = new Label("4th or 11th:");
+        lbl11.setPrefWidth(100);
+        Label lbl11IN = new Label("");
+        HBox c11Box = new HBox(10,c11,lbl11,lbl11IN);
+        
+        VBox vBoxHelp = new VBox(10);
+        vBoxHelp.getChildren().addAll(cKeyBox,cm3Box,cM3Box,cD5Box,cP5Box,
+                                      cM6Box,cm7Box,cM7Box,c9Box,c11Box);
+        
+        //FIN HELP leyenda de COLORES
+        
+        
+        HBox hBoxListsAndHelp = new HBox(20);
+        hBoxListsAndHelp.getChildren().addAll(hBoxLists,vBoxHelp);
         VBox vBoxTables = new VBox(50);
         vBoxTables.setAlignment(Pos.CENTER_LEFT);
-        vBoxTables.getChildren().addAll(hboxComboBoxes,hBoxLists);
+        vBoxTables.getChildren().addAll(hboxComboBoxes,hBoxListsAndHelp);
         
 ////////FIN TABLA DE ACORDES COMPATIBLES
         
@@ -129,6 +224,19 @@ public class ScalesAndChordsGUI extends Application {
         cbNota.setOnAction(e -> {
             escalaTest.setKey(cbNota.getValue());
             //System.out.println(escalaTest);
+            
+            lblKeyIN.setText(escalaTest.getKey());
+            lblm3IN.setText(escalaTest.getMinorThird());
+            lblM3IN.setText(escalaTest.getMajorThird());
+            lblD5IN.setText(escalaTest.getDiminishedFifth());
+            lblP5IN.setText(escalaTest.getPerfectFifth());
+            lblP5IN.setText(escalaTest.getPerfectFifth());
+            lblM6IN.setText(escalaTest.getMajorSixth());
+            lblm7IN.setText(escalaTest.getMinorSeventh());
+            lblM7IN.setText(escalaTest.getMajorSeventh());
+            lbl9IN.setText(escalaTest.getNinth());
+            lbl11IN.setText(escalaTest.getEleventh());
+            
             groupC.setGroupNotesColours(escalaTest);
             groupDb.setGroupNotesColours(escalaTest);
             groupD.setGroupNotesColours(escalaTest);
@@ -441,7 +549,7 @@ public class ScalesAndChordsGUI extends Application {
         
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Scales & Chords v1.0 rev3 2020 - JyL");
+        primaryStage.setTitle("Scales & Chords v1.1 rev1 2020 - JyL");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
